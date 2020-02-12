@@ -4,76 +4,72 @@
     <div id="demo" class="carousel slide" data-ride="carousel">
       <!-- The slideshow -->
       <div class="carousel-inner">
-        <div class="carousel-item active">
-          <img src="./img/Slider_1.png" alt="Los Angeles" width="1100" height="500">
-        </div>
-        <div class="carousel-item">
-          <img src="./img/Slider_2.png" alt="Chicago" width="1100" height="500">
-        </div>
-        <div class="carousel-item">
-          <img src="./img/Slider_3.png" alt="New York" width="1100" height="500">
-        </div>
+        <?php
+          include_once("../Model/bannersale.php");
+          $list = bannersale::getbanner80();
+          foreach ($list as $key => $value) {
+            if($key==0){
+                echo "  <div class='carousel-item active'>
+                    <img src='$value->url' alt='Los Angeles' width='1200' height='500'>
+                  </div> ";
+              }
+            else{
+              echo " <div class='carousel-item'>
+                  <img src='$value->url' alt='Los Angeles' width='1200' height='500'>
+                </div> ";
+            }
+          }
+        ?>
       </div>
     </div>
   </div>
   <div class="col-3 slidecol-4">
-    <div class="col stylecol">
-      <img src="./img/Group33.png" alt="" class="styleimg">
-      <div class="fontcol">
-         <a href="#">SHOP NOW >></a>
-      </div>
-    </div>
-    <div class="col stylecol">
-      <img src="./img/Group31.png" alt="" class="styleimg">
-      <div class="fontcol">
-         <a href="#">SHOP NOW >></a>
-      </div>
-    </div>
+    <?php
+        $list = bannersale::getBanner40();
+        foreach ($list as $key => $value) {
+          // code...
+          echo "  <div class='col stylecol'>
+              <img src='$value->url' alt='' class='styleimg'>
+              <div class='fontcol'>
+                 <a href='#'>SHOP NOW >></a>
+              </div>
+            </div>";
+        }
+    ?>
   </div>
 </div>
 <!-- END SLIDE -->
 <div id="slider">
     <div class="container owl-carousel owl-theme">
+      <?php
+        include_once("../Model/brand.php");
+        $list = brand::getbrand();
+        foreach ($list as $key => $value) {
+          echo "<div class='col item'>
+              <a href='#'><img src='$value->image' alt='' class='fontimg'></a>
+            </div>";
+        }
+      ?>
       <!-- BEGIN LAYOUT -->
-      <div class="col item">
-        <a href="#"><img src="./img/Layer1.png" alt="" class="fontimg"></a>
-      </div>
-      <div class="col item">
-        <a href="#"><img src="./img/Layer2.png" alt="" class="fontimg"></a>
-      </div>
-      <div class="col item ">
-        <a href="#"><img src="./img/Layer3.png" alt="" class="fontimg"></a>
-      </div>
-      <div class="col item">
-        <a href="#"><img src="./img/Layer4.png" alt="" class="fontimg"></a>
-      </div>
-      <div class="col item">
-        <a href="#"><img src="./img/Layer5.png" alt="" class="fontimg"></a>
-      </div>
     </div>
 </div>
 <!-- END LAYOUT -->
 <!-- BEGIN BASHOP -->
 <div class="row bashop">
-  <div class="col motshop">
-    <div>
-      <img src="./img/Group.1.png" alt="" class="image">
-    </div>
-    <div class="overlay">
-      SHOP MEN'S
-    </div>
-  </div>
-  <div class="col  motshop">
-    <img src="./img/Group.2.png" alt="" class="image">
-    <div class="overlay">
-      SHOP KID'S
-    </div>
-  </div>
-  <div class="col  motshop">
-    <img src="./img/Group.3.png" alt="">
-    <div class="overlay">
-      SHOP WOMEN'S
-    </div>
-  </div>
+  <?php
+      include_once("../Model/gender.php");
+      $list = gender::getgender();
+      foreach ($list as $key => $value) {
+        echo "
+        <div class='col motshop'>
+          <div>
+            <img src='$value->image' alt='' class='image'>
+          </div>
+          <div class='overlay'>
+            SHOP <span>$value->name's</span>
+          </div>
+        </div>";
+      }
+    ?>
 </div>
 <!-- END BASHOP -->
