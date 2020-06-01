@@ -312,10 +312,8 @@ a{
 .motshop img{
   width: 100%;
   display: block;
-  height: 400px;
-}
-.overlay span{
-  text-transform: uppercase;
+  height: auto;
+
 }
 .image{
   width: 100%;
