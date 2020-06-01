@@ -1,8 +1,10 @@
 <?php
+  include_once('./Model/common.php');
+
   /**
    *
    */
-  class category
+  class category extends common
   {
     var $id;
     var $name;
@@ -12,20 +14,10 @@
       $this->id = $id;
       $this->name = $name;
     }
-    static function connect(){
-        // Create connection
-        $conn = new mysqli("localhost", "root","", "productmananger");
-        $conn->set_charset("utf8");
-        // Check connection
-        if ($conn->connect_error) {
-            die("Connection failed: " . $conn->connect_error);
-        }
-        return $conn;
-    }
     public static function getcategory(){
-      $conn = category::connect();
+      $conn = common::connect();
       $sql = "select * from categorys";
-      $result = $conn->query(sql);
+      $result = $conn->query($sql);
       if($result->num_rows>0){
         while($row = $result ->fetch_assoc() ){
             $category = new category($row["id"],$row["name"]);
@@ -35,6 +27,17 @@
         $conn->close();
         return $list;
       }
+    // public static function getcategory($id){
+    //   $conn = category::connect();
+    //   $sql = "select * from categories where id = $id";
+    //   $result = $conn->query($sql);
+    //   if($result){
+    //     $row = $result->fetch_assoc();
+    //     $category = new category($row['id'],$row['name']);
+    //     return $category;
+    //   }
+    //   $conn->close();
+    // }
   }
 
 ?>

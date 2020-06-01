@@ -1,0 +1,20 @@
+$(document).ready(function(){
+  $("#tab1").show();
+  $("#tab2").hide();
+  $("#tab3").hide();
+  $("#t1").click(function(){
+    $("#tab1").show();
+    $("#tab2").hide();
+    $("#tab3").hide();
+  });
+  $("#t2").click(function(){
+    $("#tab2").show();
+    $("#tab1").hide();
+    $("#tab3").hide();
+  });
+  $("#t3").click(function(){
+    $("#tab3").show();
+    $("#tab1").hide();
+    $("#tab2").hide();
+  });
+})

@@ -1,0 +1,59 @@
+.headericon{
+  padding: 30px;
+  padding-top: 0px;
+  padding-left: 0px;
+}
+.infont{
+  font-size: 16px;
+  color: gray;
+  padding: 1px;
+
+}
+.nameproduct{
+  font-size: 20px;
+  font-weight: bold;
+}
+.fontproduct{
+  text-transform: uppercase;
+  font-size: 15px;
+}
+.input_cart{
+  width: 30px;
+  text-align: center;
+}
+.btnfull{
+  width: 100%;
+  padding:30px;
+}
+.mb-3{
+  margin-top: 30px;
+}
+.innghien{
+  color: gray;
+  font-weight: bold;
+  padding-right: 10px;
+  margin-rights: 10px;
+}
+.totalprice{
+  padding: 20px;
+  padding-left: 0px;
+  font-weight: 500;
+}
+.price{
+      font-weight: 600;
+}
+#totalprice{
+  padding-left: 10px;
+  padding-right: -5px;
+}
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance:textfield;
+}

@@ -1,8 +1,9 @@
 <?php
+include_once('./Model/common.php');
   /**
    *
    */
-  class gender
+  class gender extends common
   {
     var $id;
     var $name;
@@ -13,18 +14,8 @@
       $this->name = $name;
       $this->image = $image;
     }
-    static function connect(){
-        // Create connection
-        $conn = new mysqli("localhost", "root","", "productmananger");
-        $conn->set_charset("utf8");
-        // Check connection
-        if ($conn->connect_error) {
-            die("Connection failed: " . $conn->connect_error);
-        }
-        return $conn;
-    }
     public static function getgender(){
-      $conn = gender ::connect();
+      $conn = common ::connect();
       $sql = "SELECT id_gender,name,url FROM `product_gender` INNER JOIN image ON product_gender.id_image = image.id";
       $list = array();
       $result = $conn->query($sql);

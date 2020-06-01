@@ -1,8 +1,9 @@
 <?php
+include_once('./Model/common.php');
   /**
    *
    */
-  class bannersale
+  class bannersale extends common
   {
     var $id;
     var $url;
@@ -11,18 +12,9 @@
       $this->id = $id;
       $this->url = $url;
     }
-    static function connect(){
-        // Create connection
-        $conn = new mysqli("localhost", "root","", "productmananger");
-        $conn->set_charset("utf8");
-        // Check connection
-        if ($conn->connect_error) {
-            die("Connection failed: " . $conn->connect_error);
-        }
-        return $conn;
-    }
+
     public static function getBanner80(){
-      $conn = bannersale ::connect();
+      $conn = common ::connect();
       $sql = "Select * from bannersale80";
       $list = array();
       $result = $conn->query($sql);
